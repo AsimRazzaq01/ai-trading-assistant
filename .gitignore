@@ -39,3 +39,20 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+
+
+# Frontend (Next.js)
+/frontend/node_modules/
+/frontend/.next/
+/frontend/.env
+/frontend/.turbo/
+
+# Backend (Python)
+/backend/.venv/
+__pycache__/
+*.pyc
+
+# OS / Editor
+.DS_Store
+.vscode/
