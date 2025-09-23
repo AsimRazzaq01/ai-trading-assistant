@@ -1,4 +1,4 @@
-# Senior-Project
+# Senior-Project - (Profit Path 📈💵)
 Farmingdale State College Senior Project
 
 
