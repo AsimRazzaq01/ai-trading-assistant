@@ -1,0 +1,17 @@
+### Test signup
+POST http://localhost:3000/api/signup
+Content-Type: application/json
+
+{
+  "email": "hello@test.com",
+  "password": "Hello123!"
+}
+
+### Test login
+POST http://localhost:3000/api/login
+Content-Type: application/json
+
+{
+  "email": "hello@test.com",
+  "password": "Hello123!"
+}
