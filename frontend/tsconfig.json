@@ -1,27 +1,45 @@
 {
   "compilerOptions": {
-    "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "incremental": true,
+    /* ---------- Target + Libraries ---------- */
+    "target": "ES2020",                         // More modern than ES2017, safe for Next.js
+    "lib": ["dom", "dom.iterable", "esnext"],   // Includes DOM + modern JS features
+
+    /* ---------- Language Features ---------- */
+    "allowJs": true,                            // Let JS + TS coexist if needed
+    "skipLibCheck": true,                       // Faster builds, skip .d.ts checks
+    "strict": true,                             // Enable strict type checking
+    "noEmit": true,                             // Don’t output compiled JS
+    "esModuleInterop": true,                    // Allow default imports from CJS modules
+
+    /* ---------- Module Resolution ---------- */
+    "module": "esnext",                         // Output ESM-style imports
+    "moduleResolution": "bundler",              // Match Next.js bundling resolution (TS 5+)
+
+    /* ---------- Quality of Life ---------- */
+    "resolveJsonModule": true,                  // Import .json as modules
+    "isolatedModules": true,                    // Required for Next.js + SWC
+    "jsx": "preserve",                          // Let Next.js transform JSX
+    "incremental": true,                        // Speeds up rebuilds
+
+    /* ---------- IDE + Next.js Plugins ---------- */
     "plugins": [
       {
-        "name": "next"
+        "name": "next"                          // Enables Next.js IntelliSense + types
       }
     ],
+
+    /* ---------- Path Aliases ---------- */
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"]                        // Import from "@/components/Button" instead of ../../../
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+
+  /* ---------- Include/Exclude ---------- */
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"                       // Pick up generated Next.js types
+  ],
   "exclude": ["node_modules"]
 }
