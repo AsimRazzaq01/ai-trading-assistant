@@ -1,28 +1,23 @@
 import type { NextConfig } from "next";
-import process from "next/dist/build/webpack/loaders/resolve-url-loader/lib/postcss";
 
 const nextConfig: NextConfig = {
-    // Strict mode helps catch potential problems early
+    // Enable React strict mode for catching issues
     reactStrictMode: true,
 
-    // Output standalone build (better for Docker)
+    // Standalone output is best for Docker (smaller image)
     output: "standalone",
 
-    // Ensure server actions work in Next.js 15
-    experimental: {
-        serverActions: {
-            // Allow calls from your local frontend in dev
-            allowedOrigins: ["localhost:3000"],
-        },
-    },
-
-    // Enable cross-origin fetch if you deploy backend separately
+    // Add headers (CORS helpers)
     async headers() {
         return [
             {
                 source: "/(.*)",
                 headers: [
-                    { key: "Access-Control-Allow-Origin", value: process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000" },
+                    {
+                        key: "Access-Control-Allow-Origin",
+                        // 👇 fallback to localhost:8000 if env var is undefined
+                        value: process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000",
+                    },
                     { key: "Access-Control-Allow-Credentials", value: "true" },
                 ],
             },
